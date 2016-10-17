@@ -129,6 +129,58 @@ namespace ScreenShotDemo
 
         }
 
+        public Image CaptureScreen(double x, double y, double width, double height)
+        {
+            int ix, iy, iw, ih;
+            ix = Convert.ToInt32(x);
+            iy = Convert.ToInt32(y);
+            iw = Convert.ToInt32(width);
+            ih = Convert.ToInt32(height);
+            Bitmap image = new Bitmap(iw, ih,
+                   System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+            Graphics g = Graphics.FromImage(image);
+            g.CopyFromScreen(ix, iy, ix+iw, iy+ih,
+                     new System.Drawing.Size(iw, ih),
+                     CopyPixelOperation.SourceCopy);
+            return image;
+        }
+
+        public Image SaveScreen(double x, double y, double width, double height)
+        {
+            int ix, iy, iw, ih;
+            ix = Convert.ToInt32(x);
+            iy = Convert.ToInt32(y);
+            iw = Convert.ToInt32(width);
+            ih = Convert.ToInt32(height);
+            try
+            {
+                Bitmap myImage = new Bitmap(iw, ih);
+                Graphics gr1 = Graphics.FromImage(myImage);
+                IntPtr dc1 = gr1.GetHdc();
+                IntPtr dc2 = NativeMethods.GetWindowDC(NativeMethods.GetForegroundWindow());
+                NativeMethods.BitBlt(dc1, ix, iy, iw, ih, dc2, ix, iy, 13369376);
+                gr1.ReleaseHdc(dc1);
+                return myImage;
+            }
+            catch { }
+            return null;
+        }
+
+    }
+
+    internal class NativeMethods
+    {
+
+        [DllImport("user32.dll")]
+        public extern static IntPtr GetDesktopWindow();
+        [DllImport("user32.dll")]
+        public static extern IntPtr GetWindowDC(IntPtr hwnd);
+        [DllImport("user32.dll", CharSet = CharSet.Auto, ExactSpelling = true)]
+        public static extern IntPtr GetForegroundWindow();
+        [DllImport("gdi32.dll")]
+        public static extern UInt64 BitBlt(IntPtr hDestDC, int x, int y,
+           int nWidth, int nHeight, IntPtr hSrcDC,
+           int xSrc, int ySrc, System.Int32 dwRop);
 
     }
 }

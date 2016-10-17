@@ -22,7 +22,7 @@ namespace LumberRacer
 
         private void pictureBoxEye_MouseClick(object sender, MouseEventArgs e)
         {
-
+            var position = new Point(e.X, e.Y);
             var analyzer = new ImageAnalyzer()
             {
                 Image = new Bitmap(pictureBoxEye.Image),
@@ -30,7 +30,6 @@ namespace LumberRacer
             };
 
             //var position = pictureBoxEye.PointToClient(new Point(e.X, e.Y));
-            var position = new Point(e.X, e.Y);
             var point = analyzer.RealPoint(position);
 
 
@@ -55,6 +54,11 @@ namespace LumberRacer
             if (analyzer.AreColorsNear(color, ImageAnalyzer.ColorLeaf))
                 Log("Leaf");
 
+            AnalyzeParts(analyzer);
+        }
+
+        private void AnalyzeParts(ImageAnalyzer analyzer)
+        {
             analyzer.LocateParts();
 
             var bread = analyzer.RealPoint(analyzer.Bread);
@@ -69,7 +73,7 @@ namespace LumberRacer
 
             foreach (var p in analyzer.Leafs)
             {
-                Log(p.X< analyzer.TreeRoot.X ? "Left" : "Right");
+                Log(p.X < analyzer.TreeRoot.X ? "Left" : "Right");
             }
         }
 
@@ -90,13 +94,32 @@ namespace LumberRacer
             {
                 ScreenCapture sc = new ScreenCapture();
                 // capture entire screen, and save it to a file
+
                 Image img = sc.CaptureScreen();
+
+                //Image img = sc.SaveScreen(
+                //    Cursor.Position.X,
+                //    Cursor.Position.Y,
+                //    400,
+                //    400);
+
+
                 // display image in a Picture control named imageDisplay
                 pictureBoxEye.Image = img;
                 // capture this window, and save it
-                sc.CaptureWindowToFile(this.Handle, "C:\\temp2.bmp", ImageFormat.Bmp);
+                //sc.CaptureWindowToFile(this.Handle, "C:\\temp2.bmp", ImageFormat.Bmp);
+
+                var analyzer = new ImageAnalyzer()
+                {
+                    Image = new Bitmap(pictureBoxEye.Image),
+                    BeamSize = trackBarBeamSize.Value
+                };
+
+                AnalyzeParts(analyzer);
+
             };
 
+            t.Start();
         }
     }
 }
