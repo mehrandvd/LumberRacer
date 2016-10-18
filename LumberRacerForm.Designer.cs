@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LumberRacerForm));
             this.listLog = new System.Windows.Forms.ListBox();
             this.pictureBoxEye = new System.Windows.Forms.PictureBox();
             this.btnStartEye = new System.Windows.Forms.Button();
@@ -36,20 +35,30 @@
             this.textBoxG = new System.Windows.Forms.TextBox();
             this.textBoxB = new System.Windows.Forms.TextBox();
             this.panelSelectedColor = new System.Windows.Forms.Panel();
-            this.trackBarBeamSize = new System.Windows.Forms.TrackBar();
-            this.panelHead = new System.Windows.Forms.Panel();
-            this.panelTree = new System.Windows.Forms.Panel();
+            this.numericUpDownBeamSize = new System.Windows.Forms.NumericUpDown();
+            this.labelBeamSize = new System.Windows.Forms.Label();
+            this.trackBarHorizontal = new System.Windows.Forms.TrackBar();
+            this.trackBarVertical = new System.Windows.Forms.TrackBar();
+            this.numericUpDownRefreshRate = new System.Windows.Forms.NumericUpDown();
+            this.labelRefreshRate = new System.Windows.Forms.Label();
+            this.numericUpDownRequiredScore = new System.Windows.Forms.NumericUpDown();
+            this.labelRequiredScore = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEye)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarBeamSize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBeamSize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarHorizontal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarVertical)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRefreshRate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRequiredScore)).BeginInit();
             this.SuspendLayout();
             // 
             // listLog
             // 
-            this.listLog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.listLog.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listLog.FormattingEnabled = true;
-            this.listLog.Location = new System.Drawing.Point(641, 12);
+            this.listLog.Location = new System.Drawing.Point(477, 12);
             this.listLog.Name = "listLog";
-            this.listLog.Size = new System.Drawing.Size(311, 680);
+            this.listLog.Size = new System.Drawing.Size(157, 329);
             this.listLog.TabIndex = 0;
             // 
             // pictureBoxEye
@@ -57,93 +66,194 @@
             this.pictureBoxEye.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxEye.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxEye.Image")));
-            this.pictureBoxEye.Location = new System.Drawing.Point(12, 12);
+            this.pictureBoxEye.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxEye.Location = new System.Drawing.Point(150, 12);
             this.pictureBoxEye.Name = "pictureBoxEye";
-            this.pictureBoxEye.Size = new System.Drawing.Size(544, 466);
+            this.pictureBoxEye.Size = new System.Drawing.Size(270, 273);
+            this.pictureBoxEye.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxEye.TabIndex = 1;
             this.pictureBoxEye.TabStop = false;
             this.pictureBoxEye.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBoxEye_MouseClick);
             // 
             // btnStartEye
             // 
-            this.btnStartEye.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnStartEye.Location = new System.Drawing.Point(13, 655);
+            this.btnStartEye.Location = new System.Drawing.Point(12, 132);
             this.btnStartEye.Name = "btnStartEye";
-            this.btnStartEye.Size = new System.Drawing.Size(110, 35);
+            this.btnStartEye.Size = new System.Drawing.Size(132, 35);
             this.btnStartEye.TabIndex = 2;
-            this.btnStartEye.Text = "Start Eye";
+            this.btnStartEye.Text = "Look for game";
             this.btnStartEye.UseVisualStyleBackColor = true;
             this.btnStartEye.Click += new System.EventHandler(this.btnStartEye_Click);
             // 
             // textBoxR
             // 
             this.textBoxR.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBoxR.Location = new System.Drawing.Point(13, 494);
+            this.textBoxR.Location = new System.Drawing.Point(1, 183);
             this.textBoxR.Name = "textBoxR";
             this.textBoxR.Size = new System.Drawing.Size(100, 20);
             this.textBoxR.TabIndex = 3;
+            this.textBoxR.Visible = false;
             // 
             // textBoxG
             // 
             this.textBoxG.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBoxG.Location = new System.Drawing.Point(12, 520);
+            this.textBoxG.Location = new System.Drawing.Point(0, 209);
             this.textBoxG.Name = "textBoxG";
             this.textBoxG.Size = new System.Drawing.Size(100, 20);
             this.textBoxG.TabIndex = 3;
+            this.textBoxG.Visible = false;
             // 
             // textBoxB
             // 
             this.textBoxB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBoxB.Location = new System.Drawing.Point(12, 546);
+            this.textBoxB.Location = new System.Drawing.Point(0, 235);
             this.textBoxB.Name = "textBoxB";
             this.textBoxB.Size = new System.Drawing.Size(100, 20);
             this.textBoxB.TabIndex = 3;
+            this.textBoxB.Visible = false;
             // 
             // panelSelectedColor
             // 
             this.panelSelectedColor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.panelSelectedColor.Location = new System.Drawing.Point(119, 496);
+            this.panelSelectedColor.Location = new System.Drawing.Point(107, 185);
             this.panelSelectedColor.Name = "panelSelectedColor";
             this.panelSelectedColor.Size = new System.Drawing.Size(78, 69);
             this.panelSelectedColor.TabIndex = 4;
+            this.panelSelectedColor.Visible = false;
             // 
-            // trackBarBeamSize
+            // numericUpDownBeamSize
             // 
-            this.trackBarBeamSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.trackBarBeamSize.LargeChange = 10;
-            this.trackBarBeamSize.Location = new System.Drawing.Point(203, 496);
-            this.trackBarBeamSize.Maximum = 50;
-            this.trackBarBeamSize.Name = "trackBarBeamSize";
-            this.trackBarBeamSize.Size = new System.Drawing.Size(353, 45);
-            this.trackBarBeamSize.SmallChange = 10;
-            this.trackBarBeamSize.TabIndex = 5;
-            this.trackBarBeamSize.Value = 5;
+            this.numericUpDownBeamSize.Location = new System.Drawing.Point(12, 28);
+            this.numericUpDownBeamSize.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownBeamSize.Name = "numericUpDownBeamSize";
+            this.numericUpDownBeamSize.Size = new System.Drawing.Size(132, 20);
+            this.numericUpDownBeamSize.TabIndex = 7;
+            this.numericUpDownBeamSize.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             // 
-            // panelHead
+            // labelBeamSize
             // 
-            this.panelHead.BackColor = System.Drawing.Color.Maroon;
-            this.panelHead.Location = new System.Drawing.Point(591, 342);
-            this.panelHead.Name = "panelHead";
-            this.panelHead.Size = new System.Drawing.Size(20, 20);
-            this.panelHead.TabIndex = 6;
+            this.labelBeamSize.AutoSize = true;
+            this.labelBeamSize.Location = new System.Drawing.Point(9, 12);
+            this.labelBeamSize.Name = "labelBeamSize";
+            this.labelBeamSize.Size = new System.Drawing.Size(78, 13);
+            this.labelBeamSize.TabIndex = 8;
+            this.labelBeamSize.Text = "Beam size (px):";
             // 
-            // panelTree
+            // trackBarHorizontal
             // 
-            this.panelTree.BackColor = System.Drawing.Color.Black;
-            this.panelTree.Location = new System.Drawing.Point(591, 382);
-            this.panelTree.Name = "panelTree";
-            this.panelTree.Size = new System.Drawing.Size(20, 20);
-            this.panelTree.TabIndex = 6;
+            this.trackBarHorizontal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.trackBarHorizontal.LargeChange = 50;
+            this.trackBarHorizontal.Location = new System.Drawing.Point(150, 291);
+            this.trackBarHorizontal.Maximum = 1000;
+            this.trackBarHorizontal.Name = "trackBarHorizontal";
+            this.trackBarHorizontal.Size = new System.Drawing.Size(270, 45);
+            this.trackBarHorizontal.SmallChange = 10;
+            this.trackBarHorizontal.TabIndex = 9;
+            this.trackBarHorizontal.Value = 400;
+            // 
+            // trackBarVertical
+            // 
+            this.trackBarVertical.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.trackBarVertical.LargeChange = 50;
+            this.trackBarVertical.Location = new System.Drawing.Point(426, 12);
+            this.trackBarVertical.Maximum = 1000;
+            this.trackBarVertical.Name = "trackBarVertical";
+            this.trackBarVertical.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.trackBarVertical.Size = new System.Drawing.Size(45, 273);
+            this.trackBarVertical.SmallChange = 10;
+            this.trackBarVertical.TabIndex = 10;
+            this.trackBarVertical.Value = 400;
+            // 
+            // numericUpDownRefreshRate
+            // 
+            this.numericUpDownRefreshRate.Increment = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numericUpDownRefreshRate.Location = new System.Drawing.Point(12, 67);
+            this.numericUpDownRefreshRate.Maximum = new decimal(new int[] {
+            5000,
+            0,
+            0,
+            0});
+            this.numericUpDownRefreshRate.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownRefreshRate.Name = "numericUpDownRefreshRate";
+            this.numericUpDownRefreshRate.Size = new System.Drawing.Size(132, 20);
+            this.numericUpDownRefreshRate.TabIndex = 7;
+            this.numericUpDownRefreshRate.Value = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            // 
+            // labelRefreshRate
+            // 
+            this.labelRefreshRate.AutoSize = true;
+            this.labelRefreshRate.Location = new System.Drawing.Point(9, 51);
+            this.labelRefreshRate.Name = "labelRefreshRate";
+            this.labelRefreshRate.Size = new System.Drawing.Size(95, 13);
+            this.labelRefreshRate.TabIndex = 8;
+            this.labelRefreshRate.Text = "Refresh Rate (ms):";
+            // 
+            // numericUpDownRequiredScore
+            // 
+            this.numericUpDownRequiredScore.Increment = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.numericUpDownRequiredScore.Location = new System.Drawing.Point(12, 106);
+            this.numericUpDownRequiredScore.Maximum = new decimal(new int[] {
+            400,
+            0,
+            0,
+            0});
+            this.numericUpDownRequiredScore.Name = "numericUpDownRequiredScore";
+            this.numericUpDownRequiredScore.Size = new System.Drawing.Size(132, 20);
+            this.numericUpDownRequiredScore.TabIndex = 7;
+            this.numericUpDownRequiredScore.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // labelRequiredScore
+            // 
+            this.labelRequiredScore.AutoSize = true;
+            this.labelRequiredScore.Location = new System.Drawing.Point(9, 90);
+            this.labelRequiredScore.Name = "labelRequiredScore";
+            this.labelRequiredScore.Size = new System.Drawing.Size(84, 13);
+            this.labelRequiredScore.TabIndex = 8;
+            this.labelRequiredScore.Text = "Required Score:";
             // 
             // LumberRacerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(964, 702);
-            this.Controls.Add(this.panelTree);
-            this.Controls.Add(this.panelHead);
-            this.Controls.Add(this.trackBarBeamSize);
+            this.ClientSize = new System.Drawing.Size(646, 348);
+            this.Controls.Add(this.trackBarVertical);
+            this.Controls.Add(this.trackBarHorizontal);
+            this.Controls.Add(this.labelRequiredScore);
+            this.Controls.Add(this.numericUpDownRequiredScore);
+            this.Controls.Add(this.labelRefreshRate);
+            this.Controls.Add(this.numericUpDownRefreshRate);
+            this.Controls.Add(this.labelBeamSize);
+            this.Controls.Add(this.numericUpDownBeamSize);
             this.Controls.Add(this.panelSelectedColor);
             this.Controls.Add(this.textBoxB);
             this.Controls.Add(this.textBoxG);
@@ -153,8 +263,16 @@
             this.Controls.Add(this.listLog);
             this.Name = "LumberRacerForm";
             this.Text = "Lumber Racer - By Mehran DVD";
+            this.TopMost = true;
+            this.Activated += new System.EventHandler(this.LumberRacerForm_Activated);
+            this.Deactivate += new System.EventHandler(this.LumberRacerForm_Deactivate);
+            this.Load += new System.EventHandler(this.LumberRacerForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEye)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarBeamSize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBeamSize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarHorizontal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarVertical)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRefreshRate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRequiredScore)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,9 +287,14 @@
         private System.Windows.Forms.TextBox textBoxG;
         private System.Windows.Forms.TextBox textBoxB;
         private System.Windows.Forms.Panel panelSelectedColor;
-        private System.Windows.Forms.TrackBar trackBarBeamSize;
-        private System.Windows.Forms.Panel panelHead;
-        private System.Windows.Forms.Panel panelTree;
+        private System.Windows.Forms.NumericUpDown numericUpDownBeamSize;
+        private System.Windows.Forms.Label labelBeamSize;
+        private System.Windows.Forms.TrackBar trackBarHorizontal;
+        private System.Windows.Forms.TrackBar trackBarVertical;
+        private System.Windows.Forms.NumericUpDown numericUpDownRefreshRate;
+        private System.Windows.Forms.Label labelRefreshRate;
+        private System.Windows.Forms.NumericUpDown numericUpDownRequiredScore;
+        private System.Windows.Forms.Label labelRequiredScore;
     }
 }
 

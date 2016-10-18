@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ImageAnalyzer.cs" />
+    <Compile Include="KeyCommand.cs" />
     <Compile Include="LumberRacerForm.cs">
       <SubType>Form</SubType>
     </Compile>

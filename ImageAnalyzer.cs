@@ -43,6 +43,42 @@ namespace LumberRacer
 
         public List<Point> Leafs { get; set; } = new List<Point>();
 
+        
+
+        public List<KeyCommand> GetKeyCommands()
+        {
+            var commands = new List<KeyCommand>();
+
+            if (Leafs.Count < 2)
+                return new List<KeyCommand>() {KeyCommand.Left};
+
+            var vStep = Leafs[1].Y - Leafs[0].Y;
+
+            var headToFirstLeaf = Bread.Y - Leafs[0].Y;
+
+            var freeSteps = headToFirstLeaf/vStep;
+
+            for (var i = 0 ; i < freeSteps ; i++)
+            {
+                commands.Add(GetCommandForLeaf(Leafs[0]));
+            }
+
+            foreach (var leaf in Leafs)
+            {
+                commands.Add(GetCommandForLeaf(leaf));
+            }
+
+            return commands;
+        }
+
+        private KeyCommand GetCommandForLeaf(Point leaf)
+        {
+            if (leaf.X > TreeRoot.X)
+                return KeyCommand.Left;
+            else
+                return KeyCommand.Right;
+        }
+
         public void LocateParts()
         {
             TreeRoot = new Point(Width, Height);
