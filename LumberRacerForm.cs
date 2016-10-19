@@ -6,9 +6,11 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ScreenShotDemo;
+using Timer = System.Windows.Forms.Timer;
 
 namespace LumberRacer
 {
@@ -71,13 +73,24 @@ namespace LumberRacer
                         if (analyzer.Leafs.Any() && !gameFound)
                         {
                             gameFound = true;
+
                             Log("Game found.");
+                            var commands = analyzer.GetKeyCommands();
+                            Log($"Free Steps: {analyzer.FreeSteps}");
+                            var str = string.Empty;
+                            foreach (var command in commands)
+                            {
+                                str = $"{str}, {(command == KeyCommand.Left ? "L" : "R")}";
+                            }
+                            Log(str);
+                            Application.DoEvents();
                         }
 
                         if (!analyzer.Leafs.Any() && gameFound)
                         {
                             gameFound = false;
                             Log("Game lost.");
+                            
                         }
 
                         var leafPen = new Pen(Color.Orange, 10);
@@ -97,21 +110,23 @@ namespace LumberRacer
                         {
                             var commands = analyzer.GetKeyCommands();
                             var str = string.Empty;
-
+                            pictureBoxLost.Image = img;
                             foreach (var command in commands)
                             {
-                                str = $"{str}, {(command == KeyCommand.Left ? "L" : "R")}";
+                                if (command == KeyCommand.Left)
+                                    SendKeys.Send("{LEFT}");
+                                if (command == KeyCommand.Right)
+                                    SendKeys.Send("{RIGHT}");
+                                Thread.Sleep(10);
                             }
-
-                            Log(str);
+                            Thread.Sleep(400);
                         }
 
-                    }
 
+                    }
                     pictureBoxEye.Image = img;
                     Application.DoEvents();
 
-                   
 
                 }
 

@@ -43,7 +43,7 @@ namespace LumberRacer
 
         public List<Point> Leafs { get; set; } = new List<Point>();
 
-        
+        public int FreeSteps = 0;
 
         public List<KeyCommand> GetKeyCommands()
         {
@@ -52,20 +52,31 @@ namespace LumberRacer
             if (Leafs.Count < 2)
                 return new List<KeyCommand>() {KeyCommand.Left};
 
-            var vStep = Leafs[1].Y - Leafs[0].Y;
+            var vStep = Math.Abs(Leafs[1].Y - Leafs[0].Y);
 
-            var headToFirstLeaf = Bread.Y - Leafs[0].Y;
+            var headToFirstLeaf = Math.Abs(Bread.Y - Leafs[0].Y);
 
-            var freeSteps = headToFirstLeaf/vStep;
+            FreeSteps = headToFirstLeaf/vStep;
 
-            for (var i = 0 ; i < freeSteps ; i++)
+            for (var i = 0 ; i < FreeSteps; i++)
             {
+                commands.Add(GetCommandForLeaf(Leafs[0]));
                 commands.Add(GetCommandForLeaf(Leafs[0]));
             }
 
+            if (commands.Any())
+                return commands;
+
+            //int preLeaf = int.MaxValue;
             foreach (var leaf in Leafs)
             {
+                //if (Math.Abs(leaf.Y-preLeaf) < vStep/5)
+                //    continue;
+
                 commands.Add(GetCommandForLeaf(leaf));
+                commands.Add(GetCommandForLeaf(leaf));
+
+                //preLeaf = leaf.Y;
             }
 
             return commands;
@@ -147,7 +158,18 @@ namespace LumberRacer
                 }
 
                 if (found && !leafSeen)
+                {
+                    if (Leafs.Count > 1)
+                    {
+                        var vStep = Math.Abs(Leafs[1].Y - Leafs[0].Y);
+                        if (Math.Abs(location.Y - Leafs[Leafs.Count-1].Y) < vStep/5)
+                            continue;
+
+                        if (location.Y == TreeRoot.Y)
+                            continue;
+                    }
                     Leafs.Add(location);
+                }
 
                 leafSeen = found;
             }
