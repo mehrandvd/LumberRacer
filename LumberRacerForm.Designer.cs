@@ -44,6 +44,10 @@
             this.numericUpDownRequiredScore = new System.Windows.Forms.NumericUpDown();
             this.labelRequiredScore = new System.Windows.Forms.Label();
             this.pictureBoxLost = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.numericUpDownColorPrecision = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownGridSize = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEye)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBeamSize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarHorizontal)).BeginInit();
@@ -51,6 +55,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRefreshRate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRequiredScore)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLost)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownColorPrecision)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownGridSize)).BeginInit();
             this.SuspendLayout();
             // 
             // listLog
@@ -58,9 +64,9 @@
             this.listLog.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listLog.FormattingEnabled = true;
-            this.listLog.Location = new System.Drawing.Point(477, 12);
+            this.listLog.Location = new System.Drawing.Point(1013, 12);
             this.listLog.Name = "listLog";
-            this.listLog.Size = new System.Drawing.Size(157, 485);
+            this.listLog.Size = new System.Drawing.Size(157, 654);
             this.listLog.TabIndex = 0;
             // 
             // pictureBoxEye
@@ -71,7 +77,7 @@
             this.pictureBoxEye.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBoxEye.Location = new System.Drawing.Point(150, 12);
             this.pictureBoxEye.Name = "pictureBoxEye";
-            this.pictureBoxEye.Size = new System.Drawing.Size(270, 207);
+            this.pictureBoxEye.Size = new System.Drawing.Size(321, 600);
             this.pictureBoxEye.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxEye.TabIndex = 1;
             this.pictureBoxEye.TabStop = false;
@@ -79,7 +85,7 @@
             // 
             // btnStartEye
             // 
-            this.btnStartEye.Location = new System.Drawing.Point(12, 132);
+            this.btnStartEye.Location = new System.Drawing.Point(12, 209);
             this.btnStartEye.Name = "btnStartEye";
             this.btnStartEye.Size = new System.Drawing.Size(132, 35);
             this.btnStartEye.TabIndex = 2;
@@ -90,42 +96,38 @@
             // textBoxR
             // 
             this.textBoxR.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBoxR.Location = new System.Drawing.Point(1, 350);
+            this.textBoxR.Location = new System.Drawing.Point(12, 540);
             this.textBoxR.Name = "textBoxR";
             this.textBoxR.Size = new System.Drawing.Size(100, 20);
             this.textBoxR.TabIndex = 3;
-            this.textBoxR.Visible = false;
             // 
             // textBoxG
             // 
             this.textBoxG.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBoxG.Location = new System.Drawing.Point(0, 376);
+            this.textBoxG.Location = new System.Drawing.Point(11, 566);
             this.textBoxG.Name = "textBoxG";
             this.textBoxG.Size = new System.Drawing.Size(100, 20);
             this.textBoxG.TabIndex = 3;
-            this.textBoxG.Visible = false;
             // 
             // textBoxB
             // 
             this.textBoxB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBoxB.Location = new System.Drawing.Point(0, 402);
+            this.textBoxB.Location = new System.Drawing.Point(11, 592);
             this.textBoxB.Name = "textBoxB";
             this.textBoxB.Size = new System.Drawing.Size(100, 20);
             this.textBoxB.TabIndex = 3;
-            this.textBoxB.Visible = false;
             // 
             // panelSelectedColor
             // 
             this.panelSelectedColor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.panelSelectedColor.Location = new System.Drawing.Point(107, 352);
+            this.panelSelectedColor.Location = new System.Drawing.Point(12, 465);
             this.panelSelectedColor.Name = "panelSelectedColor";
             this.panelSelectedColor.Size = new System.Drawing.Size(78, 69);
             this.panelSelectedColor.TabIndex = 4;
-            this.panelSelectedColor.Visible = false;
             // 
             // numericUpDownBeamSize
             // 
-            this.numericUpDownBeamSize.Location = new System.Drawing.Point(12, 28);
+            this.numericUpDownBeamSize.Location = new System.Drawing.Point(12, 65);
             this.numericUpDownBeamSize.Minimum = new decimal(new int[] {
             1,
             0,
@@ -135,7 +137,7 @@
             this.numericUpDownBeamSize.Size = new System.Drawing.Size(132, 20);
             this.numericUpDownBeamSize.TabIndex = 7;
             this.numericUpDownBeamSize.Value = new decimal(new int[] {
-            5,
+            3,
             0,
             0,
             0});
@@ -143,7 +145,7 @@
             // labelBeamSize
             // 
             this.labelBeamSize.AutoSize = true;
-            this.labelBeamSize.Location = new System.Drawing.Point(9, 12);
+            this.labelBeamSize.Location = new System.Drawing.Point(9, 49);
             this.labelBeamSize.Name = "labelBeamSize";
             this.labelBeamSize.Size = new System.Drawing.Size(78, 13);
             this.labelBeamSize.TabIndex = 8;
@@ -154,10 +156,10 @@
             this.trackBarHorizontal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.trackBarHorizontal.LargeChange = 50;
-            this.trackBarHorizontal.Location = new System.Drawing.Point(150, 225);
+            this.trackBarHorizontal.Location = new System.Drawing.Point(150, 621);
             this.trackBarHorizontal.Maximum = 1000;
             this.trackBarHorizontal.Name = "trackBarHorizontal";
-            this.trackBarHorizontal.Size = new System.Drawing.Size(270, 45);
+            this.trackBarHorizontal.Size = new System.Drawing.Size(321, 45);
             this.trackBarHorizontal.SmallChange = 10;
             this.trackBarHorizontal.TabIndex = 9;
             this.trackBarHorizontal.Value = 400;
@@ -167,14 +169,14 @@
             this.trackBarVertical.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.trackBarVertical.LargeChange = 50;
-            this.trackBarVertical.Location = new System.Drawing.Point(426, 12);
+            this.trackBarVertical.Location = new System.Drawing.Point(477, 12);
             this.trackBarVertical.Maximum = 1000;
             this.trackBarVertical.Name = "trackBarVertical";
             this.trackBarVertical.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trackBarVertical.Size = new System.Drawing.Size(45, 207);
+            this.trackBarVertical.Size = new System.Drawing.Size(45, 600);
             this.trackBarVertical.SmallChange = 10;
             this.trackBarVertical.TabIndex = 10;
-            this.trackBarVertical.Value = 400;
+            this.trackBarVertical.Value = 600;
             // 
             // numericUpDownRefreshRate
             // 
@@ -183,7 +185,7 @@
             0,
             0,
             0});
-            this.numericUpDownRefreshRate.Location = new System.Drawing.Point(12, 67);
+            this.numericUpDownRefreshRate.Location = new System.Drawing.Point(12, 144);
             this.numericUpDownRefreshRate.Maximum = new decimal(new int[] {
             5000,
             0,
@@ -206,7 +208,7 @@
             // labelRefreshRate
             // 
             this.labelRefreshRate.AutoSize = true;
-            this.labelRefreshRate.Location = new System.Drawing.Point(9, 51);
+            this.labelRefreshRate.Location = new System.Drawing.Point(9, 128);
             this.labelRefreshRate.Name = "labelRefreshRate";
             this.labelRefreshRate.Size = new System.Drawing.Size(95, 13);
             this.labelRefreshRate.TabIndex = 8;
@@ -219,7 +221,7 @@
             0,
             0,
             0});
-            this.numericUpDownRequiredScore.Location = new System.Drawing.Point(12, 106);
+            this.numericUpDownRequiredScore.Location = new System.Drawing.Point(12, 183);
             this.numericUpDownRequiredScore.Maximum = new decimal(new int[] {
             400,
             0,
@@ -237,7 +239,7 @@
             // labelRequiredScore
             // 
             this.labelRequiredScore.AutoSize = true;
-            this.labelRequiredScore.Location = new System.Drawing.Point(9, 90);
+            this.labelRequiredScore.Location = new System.Drawing.Point(9, 167);
             this.labelRequiredScore.Name = "labelRequiredScore";
             this.labelRequiredScore.Size = new System.Drawing.Size(84, 13);
             this.labelRequiredScore.TabIndex = 8;
@@ -245,22 +247,75 @@
             // 
             // pictureBoxLost
             // 
-            this.pictureBoxLost.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.pictureBoxLost.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBoxLost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxLost.Location = new System.Drawing.Point(150, 276);
+            this.pictureBoxLost.Location = new System.Drawing.Point(543, 12);
             this.pictureBoxLost.Name = "pictureBoxLost";
-            this.pictureBoxLost.Size = new System.Drawing.Size(270, 207);
+            this.pictureBoxLost.Size = new System.Drawing.Size(464, 654);
             this.pictureBoxLost.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxLost.TabIndex = 11;
             this.pictureBoxLost.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 88);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(79, 13);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Color precision:";
+            // 
+            // numericUpDownColorPrecision
+            // 
+            this.numericUpDownColorPrecision.Location = new System.Drawing.Point(12, 104);
+            this.numericUpDownColorPrecision.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownColorPrecision.Name = "numericUpDownColorPrecision";
+            this.numericUpDownColorPrecision.Size = new System.Drawing.Size(132, 20);
+            this.numericUpDownColorPrecision.TabIndex = 12;
+            this.numericUpDownColorPrecision.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // numericUpDownGridSize
+            // 
+            this.numericUpDownGridSize.Location = new System.Drawing.Point(12, 26);
+            this.numericUpDownGridSize.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownGridSize.Name = "numericUpDownGridSize";
+            this.numericUpDownGridSize.Size = new System.Drawing.Size(132, 20);
+            this.numericUpDownGridSize.TabIndex = 7;
+            this.numericUpDownGridSize.Value = new decimal(new int[] {
+            8,
+            0,
+            0,
+            0});
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(9, 10);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(84, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Griding size (px):";
             // 
             // LumberRacerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(646, 515);
+            this.ClientSize = new System.Drawing.Size(1182, 693);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.numericUpDownColorPrecision);
             this.Controls.Add(this.pictureBoxLost);
             this.Controls.Add(this.trackBarVertical);
             this.Controls.Add(this.trackBarHorizontal);
@@ -268,7 +323,9 @@
             this.Controls.Add(this.numericUpDownRequiredScore);
             this.Controls.Add(this.labelRefreshRate);
             this.Controls.Add(this.numericUpDownRefreshRate);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.labelBeamSize);
+            this.Controls.Add(this.numericUpDownGridSize);
             this.Controls.Add(this.numericUpDownBeamSize);
             this.Controls.Add(this.panelSelectedColor);
             this.Controls.Add(this.textBoxB);
@@ -290,6 +347,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRefreshRate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRequiredScore)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLost)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownColorPrecision)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownGridSize)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -313,6 +372,10 @@
         private System.Windows.Forms.NumericUpDown numericUpDownRequiredScore;
         private System.Windows.Forms.Label labelRequiredScore;
         private System.Windows.Forms.PictureBox pictureBoxLost;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown numericUpDownColorPrecision;
+        private System.Windows.Forms.NumericUpDown numericUpDownGridSize;
+        private System.Windows.Forms.Label label2;
     }
 }
 

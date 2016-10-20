@@ -17,6 +17,10 @@ namespace LumberRacer
         public static Color ColorLeaf = Color.FromArgb(159, 208, 109);
         public static Color ColorBread = Color.Black;
 
+
+        public int FreeSteps = 0;
+        public int ColorPrecision = 20;
+
         public Bitmap Image
         {
             get { return _image; }
@@ -43,7 +47,6 @@ namespace LumberRacer
 
         public List<Point> Leafs { get; set; } = new List<Point>();
 
-        public int FreeSteps = 0;
 
         public List<KeyCommand> GetKeyCommands()
         {
@@ -110,19 +113,27 @@ namespace LumberRacer
                 }
             }
 
+            if (Bread == default(Point))
+                return;
+
             TreeRoot = new Point(Width, Height);
-            for (var x = Bread.X; x > BeamSize; x -= GridSize)
+            for (var vStep = GridSize; Bread.X + vStep < Width-BeamSize; vStep+=GridSize)
             {
                     var y = Bread.Y;
-
-                    var location = new Point(x, y);
-                    var real = RealPoint(location);
-                    var color = PickBeamColor(real, BeamSize);
-
-                    if (AreColorsNear(color, ColorTreeDark))
+                    var location = new Point(Bread.X+vStep, y);
+                    if (AreColorsNear(PickBeamColor(RealPoint(location), BeamSize), ColorTreeDark))
                     {
                         TreeRoot = location;
+                        break;
                     }
+
+                    location = new Point(Bread.X - vStep, y);
+                if ( location.X > 0 && AreColorsNear(PickBeamColor(RealPoint(location), BeamSize), ColorTreeDark))
+                    {
+                        TreeRoot = location;
+                        break;
+                    }
+
             }
             TreeRoot = new Point(TreeRoot.X, Bread.Y);
 
@@ -187,22 +198,40 @@ namespace LumberRacer
 
         public bool AreColorsNear(Color left, Color right)
         {
-            var dif = (Math.Abs(left.R - right.R) + Math.Abs(left.G - right.G) + Math.Abs(left.B - right.B))/3;
-            return dif < 20;
+            var dif = GetColorDistance(left, right);
+            return dif < ColorPrecision;
+        }
+
+        public int GetColorDistance(Color left, Color right)
+        {
+            return (Math.Abs(left.R - right.R) + Math.Abs(left.G - right.G) + Math.Abs(left.B - right.B))/3;
         }
 
         public Color PickBeamColor(Point location, int radius)
         {
             var colors = new List<Color>();
-            
-            colors.Add(PickPixelColor(location));
-            colors.Add(PickPixelColor(new Point(location.X, location.Y + radius)));
-            colors.Add(PickPixelColor(new Point(location.X + radius, location.Y)));
-            colors.Add(PickPixelColor(new Point(location.X + radius, location.Y + radius)));
 
-            colors.Add(PickPixelColor(new Point(location.X, location.Y - radius)));
-            colors.Add(PickPixelColor(new Point(location.X - radius, location.Y)));
-            colors.Add(PickPixelColor(new Point(location.X - radius, location.Y - radius)));
+            colors.Add(PickPixelColor(location));
+
+            for (var i = GridSize; i < radius; i+= GridSize)
+            {
+                for (int j = GridSize; j < radius; j+= GridSize)
+                {
+                    colors.Add(PickPixelColor(new Point(location.X + i, location.Y + j)));
+                    colors.Add(PickPixelColor(new Point(location.X + i, location.Y - j)));
+                    colors.Add(PickPixelColor(new Point(location.X - i, location.Y + j)));
+                    colors.Add(PickPixelColor(new Point(location.X - i, location.Y - j)));
+                }    
+            }
+
+            //colors.Add(PickPixelColor(location));
+            //colors.Add(PickPixelColor(new Point(location.X, location.Y + radius)));
+            //colors.Add(PickPixelColor(new Point(location.X + radius, location.Y)));
+            //colors.Add(PickPixelColor(new Point(location.X + radius, location.Y + radius)));
+
+            //colors.Add(PickPixelColor(new Point(location.X, location.Y - radius)));
+            //colors.Add(PickPixelColor(new Point(location.X - radius, location.Y)));
+            //colors.Add(PickPixelColor(new Point(location.X - radius, location.Y - radius)));
 
             return Color.FromArgb((int) colors.Average(c => c.R), (int) colors.Average(c => c.G), (int) colors.Average(c => c.B));
         }

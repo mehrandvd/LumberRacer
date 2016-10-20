@@ -62,10 +62,19 @@ namespace LumberRacer
                     var analyzer = new ImageAnalyzer()
                     {
                         Image = new Bitmap(img),
-                        BeamSize = int.Parse(numericUpDownBeamSize.Text)
+                        BeamSize = (int)numericUpDownBeamSize.Value,
+                        ColorPrecision = (int)numericUpDownColorPrecision.Value,
+                        GridSize = (int)numericUpDownGridSize.Value
                     };
 
-                    
+                    var location = new Point(analyzer.Width/2, analyzer.Height/2);
+                    sc.Graphics.DrawString("X", new Font(FontFamily.GenericMonospace, 10, FontStyle.Bold), new SolidBrush(Color.Black), location);
+                    var centerColor = analyzer.PickBeamColor(location, analyzer.BeamSize);
+                    panelSelectedColor.BackColor = centerColor;
+                    textBoxR.Text = analyzer.GetColorDistance(ImageAnalyzer.ColorTreeDark, centerColor).ToString();
+                    //textBoxG.Text = centerColor.G.ToString(); ;
+                    //textBoxB.Text = centerColor.B.ToString(); ;
+
                     if (lookForGame)
                     {
                         AnalyzeParts(analyzer);
@@ -119,7 +128,7 @@ namespace LumberRacer
                                     SendKeys.Send("{RIGHT}");
                                 Thread.Sleep(10);
                             }
-                            Thread.Sleep(400);
+                            Thread.Sleep(300);
                         }
 
 
@@ -148,7 +157,9 @@ namespace LumberRacer
             var analyzer = new ImageAnalyzer()
             {
                 Image = new Bitmap(pictureBoxEye.Image),
-                BeamSize = (int)numericUpDownBeamSize.Value
+                BeamSize = (int)numericUpDownBeamSize.Value,
+                ColorPrecision = (int)numericUpDownColorPrecision.Value,
+                GridSize = (int)numericUpDownGridSize.Value
             };
 
             //var position = pictureBoxEye.PointToClient(new Point(e.X, e.Y));
