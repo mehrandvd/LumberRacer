@@ -335,7 +335,7 @@
             this.Controls.Add(this.pictureBoxEye);
             this.Controls.Add(this.listLog);
             this.Name = "LumberRacerForm";
-            this.Text = "Lumber Racer - By Mehran DVD";
+            this.Text = "Lumberjack Monster - By @mehrandvd";
             this.TopMost = true;
             this.Activated += new System.EventHandler(this.LumberRacerForm_Activated);
             this.Deactivate += new System.EventHandler(this.LumberRacerForm_Deactivate);
