@@ -1,6 +1,6 @@
 ﻿namespace LumberRacer
 {
-    partial class LumberRacerForm
+    partial class LumberRacerFormOld
     {
         /// <summary>
         /// Required designer variable.
@@ -309,7 +309,7 @@
             this.label2.TabIndex = 8;
             this.label2.Text = "Griding size (px):";
             // 
-            // LumberRacerForm
+            // LumberRacerFormOld
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -334,7 +334,7 @@
             this.Controls.Add(this.btnStartEye);
             this.Controls.Add(this.pictureBoxEye);
             this.Controls.Add(this.listLog);
-            this.Name = "LumberRacerForm";
+            this.Name = "LumberRacerFormOld";
             this.Text = "Lumber Racer - By Mehran DVD";
             this.TopMost = true;
             this.Activated += new System.EventHandler(this.LumberRacerForm_Activated);
