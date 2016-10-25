@@ -20,7 +20,7 @@ namespace ScreenShotDemo
             Bitmap bmp = new Bitmap(width,height);
             Graphics = Graphics.FromImage(bmp);
             var screen = Screen.FromPoint(Cursor.Position);
-            Graphics.CopyFromScreen(p.X, p.Y, 0, 0, new Size(width, height));
+            Graphics.CopyFromScreen(p.X-width/2, p.Y-height/2, 0, 0, new Size(width, height));
             return bmp;
         }
 
