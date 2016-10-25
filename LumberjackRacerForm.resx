@@ -117,4 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="richTextBoxHelp.Text" xml:space="preserve">
+    <value>1. Move mouse to your game (Dont click on it yet!)
+
+
+2. Adjust camera size using arrow keys.
+
+
+3. Make sure it finds leafs correctly.
+
+
+4. Click on the game to start gaming.
+
+You can find me at:
+http://mehrandvd.me</value>
+  </data>
 </root>

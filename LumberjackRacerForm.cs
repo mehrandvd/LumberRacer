@@ -163,5 +163,10 @@ namespace LumberRacer
             if (algorithm != null)
                 algorithm.IsPlayStarted = true;
         }
+
+        private void richTextBoxHelp_LinkClicked(object sender, LinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(e.LinkText);
+        }
     }
 }
