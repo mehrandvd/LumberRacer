@@ -36,9 +36,13 @@
             this.trackBarVertical = new System.Windows.Forms.TrackBar();
             this.flowLayoutPanelAlgorithmConfig = new System.Windows.Forms.FlowLayoutPanel();
             this.richTextBoxHelp = new System.Windows.Forms.RichTextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBoxCamera = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureMonitor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarHorizontal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVertical)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBoxCamera.SuspendLayout();
             this.SuspendLayout();
             // 
             // listLog
@@ -57,9 +61,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureMonitor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureMonitor.Location = new System.Drawing.Point(150, 12);
+            this.pictureMonitor.Location = new System.Drawing.Point(6, 19);
             this.pictureMonitor.Name = "pictureMonitor";
-            this.pictureMonitor.Size = new System.Drawing.Size(268, 386);
+            this.pictureMonitor.Size = new System.Drawing.Size(245, 361);
             this.pictureMonitor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureMonitor.TabIndex = 1;
             this.pictureMonitor.TabStop = false;
@@ -80,10 +84,10 @@
             this.trackBarHorizontal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.trackBarHorizontal.LargeChange = 50;
-            this.trackBarHorizontal.Location = new System.Drawing.Point(150, 404);
+            this.trackBarHorizontal.Location = new System.Drawing.Point(6, 386);
             this.trackBarHorizontal.Maximum = 1000;
             this.trackBarHorizontal.Name = "trackBarHorizontal";
-            this.trackBarHorizontal.Size = new System.Drawing.Size(268, 45);
+            this.trackBarHorizontal.Size = new System.Drawing.Size(245, 45);
             this.trackBarHorizontal.SmallChange = 10;
             this.trackBarHorizontal.TabIndex = 9;
             this.trackBarHorizontal.Value = 400;
@@ -93,22 +97,24 @@
             this.trackBarVertical.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.trackBarVertical.LargeChange = 50;
-            this.trackBarVertical.Location = new System.Drawing.Point(424, 12);
+            this.trackBarVertical.Location = new System.Drawing.Point(257, 31);
             this.trackBarVertical.Maximum = 1000;
             this.trackBarVertical.Name = "trackBarVertical";
             this.trackBarVertical.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trackBarVertical.Size = new System.Drawing.Size(45, 386);
+            this.trackBarVertical.Size = new System.Drawing.Size(45, 355);
             this.trackBarVertical.SmallChange = 10;
             this.trackBarVertical.TabIndex = 10;
             this.trackBarVertical.Value = 600;
             // 
             // flowLayoutPanelAlgorithmConfig
             // 
-            this.flowLayoutPanelAlgorithmConfig.AutoSize = true;
+            this.flowLayoutPanelAlgorithmConfig.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanelAlgorithmConfig.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanelAlgorithmConfig.Location = new System.Drawing.Point(11, 12);
+            this.flowLayoutPanelAlgorithmConfig.Location = new System.Drawing.Point(6, 19);
             this.flowLayoutPanelAlgorithmConfig.Name = "flowLayoutPanelAlgorithmConfig";
-            this.flowLayoutPanelAlgorithmConfig.Size = new System.Drawing.Size(133, 386);
+            this.flowLayoutPanelAlgorithmConfig.Size = new System.Drawing.Size(131, 361);
             this.flowLayoutPanelAlgorithmConfig.TabIndex = 14;
             // 
             // richTextBoxHelp
@@ -124,28 +130,56 @@
             this.richTextBoxHelp.Text = resources.GetString("richTextBoxHelp.Text");
             this.richTextBoxHelp.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richTextBoxHelp_LinkClicked);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox1.Controls.Add(this.flowLayoutPanelAlgorithmConfig);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(143, 386);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Algorithm Settings";
+            // 
+            // groupBoxCamera
+            // 
+            this.groupBoxCamera.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxCamera.Controls.Add(this.pictureMonitor);
+            this.groupBoxCamera.Controls.Add(this.trackBarHorizontal);
+            this.groupBoxCamera.Controls.Add(this.trackBarVertical);
+            this.groupBoxCamera.Location = new System.Drawing.Point(161, 12);
+            this.groupBoxCamera.Name = "groupBoxCamera";
+            this.groupBoxCamera.Size = new System.Drawing.Size(308, 437);
+            this.groupBoxCamera.TabIndex = 16;
+            this.groupBoxCamera.TabStop = false;
+            this.groupBoxCamera.Text = "Camera";
+            // 
             // LumberjackRacerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(734, 461);
+            this.Controls.Add(this.groupBoxCamera);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.richTextBoxHelp);
-            this.Controls.Add(this.flowLayoutPanelAlgorithmConfig);
-            this.Controls.Add(this.trackBarVertical);
-            this.Controls.Add(this.trackBarHorizontal);
             this.Controls.Add(this.btnStartEye);
-            this.Controls.Add(this.pictureMonitor);
             this.Controls.Add(this.listLog);
             this.Name = "LumberjackRacerForm";
-            this.Text = "Lumber Racer - By Mehran DVD";
+            this.Text = "Telegram Lumberjack Racer - by @mehrandvd";
             this.TopMost = true;
             this.Activated += new System.EventHandler(this.LumberjackRacerForm_Activated);
             this.Deactivate += new System.EventHandler(this.LumberjackRacerForm_Deactivate);
             ((System.ComponentModel.ISupportInitialize)(this.pictureMonitor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarHorizontal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVertical)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBoxCamera.ResumeLayout(false);
+            this.groupBoxCamera.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -158,6 +192,8 @@
         private System.Windows.Forms.TrackBar trackBarVertical;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelAlgorithmConfig;
         private System.Windows.Forms.RichTextBox richTextBoxHelp;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxCamera;
     }
 }
 
