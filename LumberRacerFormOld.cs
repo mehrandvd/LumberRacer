@@ -14,9 +14,9 @@ using Timer = System.Windows.Forms.Timer;
 
 namespace LumberRacer
 {
-    public partial class LumberRacerForm : Form
+    public partial class LumberRacerFormOld : Form
     {
-        public LumberRacerForm()
+        public LumberRacerFormOld()
         {
             InitializeComponent();
         }

@@ -16,7 +16,7 @@ namespace LumberRacer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LumberRacerForm());
+            Application.Run(new LumberjackRacerForm());
         }
     }
 }
