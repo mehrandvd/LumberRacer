@@ -151,5 +151,17 @@ namespace LumberRacer
                 algorithm?.StartGame(world);
             }
         }
+
+        private void LumberjackRacerForm_Activated(object sender, EventArgs e)
+        {
+            if (algorithm != null)
+                algorithm.IsPlayStarted = false;
+        }
+
+        private void LumberjackRacerForm_Deactivate(object sender, EventArgs e)
+        {
+            if (algorithm != null)
+                algorithm.IsPlayStarted = true;
+        }
     }
 }

@@ -178,6 +178,8 @@
             this.Controls.Add(this.listLog);
             this.Name = "LumberjackRacerForm";
             this.Text = "Lumber Racer - By Mehran DVD";
+            this.Activated += new System.EventHandler(this.LumberjackRacerForm_Activated);
+            this.Deactivate += new System.EventHandler(this.LumberjackRacerForm_Deactivate);
             ((System.ComponentModel.ISupportInitialize)(this.pictureMonitor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarHorizontal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVertical)).EndInit();
