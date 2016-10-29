@@ -11,5 +11,6 @@ namespace LumberRacer
         bool IsGameStarted { get; set; }
         bool IsGameFound { get; set; }
         bool IsPlayStarted { get; set; }
+        int CommandCount { get; set; }
     }
 }

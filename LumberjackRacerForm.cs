@@ -58,7 +58,8 @@ namespace LumberRacer
 
                 var textbox = new NumericUpDown
                 {
-                    Value = displayAttribute?.DefaultValue ?? 0
+                    Value = displayAttribute?.DefaultValue ?? 0,
+                    Maximum = displayAttribute?.Max ?? 400
                 };
 
                 propertyInfo.SetValue(config, displayAttribute?.DefaultValue);
@@ -86,6 +87,14 @@ namespace LumberRacer
             world.SetView(trackBarHorizontal.Value, trackBarVertical.Value);
             var oldImage = pictureMonitor.Image;
             oldImage?.Dispose();
+
+            if (algorithm.CommandCount >= algorithm.AlgorithmConfig.RequiredScore)
+            {
+                ToggleStartGame();
+                algorithm.CommandCount = 0;
+                Activate();
+                MessageBox.Show($"Congratulations, you just got your requested score: {algorithm.AlgorithmConfig.RequiredScore}");
+            }
 
             try
             {

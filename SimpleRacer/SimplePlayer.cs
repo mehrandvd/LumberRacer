@@ -93,7 +93,11 @@ namespace LumberRacer.SimpleRacer
                         RequestedMonitorImage = img;
                         foreach (var command in commands)
                         {
+                            if (CommandCount >= algorimConfig.RequiredScore)
+                                break;
+
                             world.SendKeyboardCommand(command);
+                            CommandCount++;
                             Thread.Sleep(10);
                         }
                         Thread.Sleep(300);
@@ -108,6 +112,8 @@ namespace LumberRacer.SimpleRacer
             _decisionerTimer.Interval = AlgorithmConfig?.RefreshRate ?? 1;
             _decisionerTimer.Enabled = true;
         }
+
+        public int CommandCount { get; set; } = 0;
 
         private void Log(string message)
         {

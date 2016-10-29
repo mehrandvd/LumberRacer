@@ -9,5 +9,6 @@ namespace LumberRacer
     public interface IAlgorithmConfig
     {
         int RefreshRate { get; set; }
+        int RequiredScore { get; set; }
     }
 }
