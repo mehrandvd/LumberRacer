@@ -56,11 +56,16 @@ namespace LumberRacer
                     TextAlign = ContentAlignment.BottomLeft
                 };
 
+                
+
+
                 var textbox = new NumericUpDown
                 {
-                    Value = displayAttribute?.DefaultValue ?? 0,
-                    Maximum = displayAttribute?.Max ?? 400
+                    Maximum = displayAttribute?.Max ?? 400,
+                    Value = displayAttribute?.DefaultValue ?? 0
                 };
+
+
 
                 propertyInfo.SetValue(config, displayAttribute?.DefaultValue);
                 textbox.ValueChanged += (sender, args) =>
