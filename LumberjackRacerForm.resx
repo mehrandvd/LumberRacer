@@ -120,14 +120,11 @@
   <data name="richTextBoxHelp.Text" xml:space="preserve">
     <value>1. Move mouse to your game (Dont click on it yet!)
 
-2. Press "Space" to start the eye.
+2. Move mouse until camera turns green.
 
-3. Adjust camera size using arrow keys.
+3. Click on the game to start gaming.
 
-4. Make sure it finds leafs correctly.
-
-5. Click on the game to start gaming.
-
+Also you can adjust camera size using arrow keys before clicking on the game.
 
 
 

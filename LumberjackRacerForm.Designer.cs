@@ -38,11 +38,13 @@
             this.richTextBoxHelp = new System.Windows.Forms.RichTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBoxCamera = new System.Windows.Forms.GroupBox();
+            this.panelCameraStatus = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureMonitor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarHorizontal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarVertical)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBoxCamera.SuspendLayout();
+            this.panelCameraStatus.SuspendLayout();
             this.SuspendLayout();
             // 
             // listLog
@@ -60,10 +62,11 @@
             this.pictureMonitor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureMonitor.BackColor = System.Drawing.SystemColors.Control;
             this.pictureMonitor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureMonitor.Location = new System.Drawing.Point(6, 19);
+            this.pictureMonitor.Location = new System.Drawing.Point(8, 18);
             this.pictureMonitor.Name = "pictureMonitor";
-            this.pictureMonitor.Size = new System.Drawing.Size(245, 361);
+            this.pictureMonitor.Size = new System.Drawing.Size(229, 335);
             this.pictureMonitor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureMonitor.TabIndex = 1;
             this.pictureMonitor.TabStop = false;
@@ -147,7 +150,7 @@
             this.groupBoxCamera.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxCamera.Controls.Add(this.pictureMonitor);
+            this.groupBoxCamera.Controls.Add(this.panelCameraStatus);
             this.groupBoxCamera.Controls.Add(this.trackBarHorizontal);
             this.groupBoxCamera.Controls.Add(this.trackBarVertical);
             this.groupBoxCamera.Location = new System.Drawing.Point(161, 12);
@@ -156,6 +159,19 @@
             this.groupBoxCamera.TabIndex = 16;
             this.groupBoxCamera.TabStop = false;
             this.groupBoxCamera.Text = "Camera";
+            // 
+            // panelCameraStatus
+            // 
+            this.panelCameraStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelCameraStatus.BackColor = System.Drawing.Color.Red;
+            this.panelCameraStatus.Controls.Add(this.pictureMonitor);
+            this.panelCameraStatus.Location = new System.Drawing.Point(6, 19);
+            this.panelCameraStatus.Name = "panelCameraStatus";
+            this.panelCameraStatus.Padding = new System.Windows.Forms.Padding(5, 15, 5, 5);
+            this.panelCameraStatus.Size = new System.Drawing.Size(245, 361);
+            this.panelCameraStatus.TabIndex = 11;
             // 
             // LumberjackRacerForm
             // 
@@ -179,6 +195,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBoxCamera.ResumeLayout(false);
             this.groupBoxCamera.PerformLayout();
+            this.panelCameraStatus.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -194,6 +211,7 @@
         private System.Windows.Forms.RichTextBox richTextBoxHelp;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBoxCamera;
+        private System.Windows.Forms.Panel panelCameraStatus;
     }
 }
 

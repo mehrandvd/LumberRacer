@@ -59,7 +59,8 @@ namespace LumberRacer.SimpleRacer
                         var commands = analyzer.GetKeyCommands();
                         Log($"Free Steps: {analyzer.FreeSteps}");
                         var str = string.Empty;
-                        foreach (var command in commands)
+                        var lowRiskCommandCount = commands.Count>0 ? commands.Count-1 : 0;
+                        foreach (var command in commands.Take(lowRiskCommandCount))
                         {
                             str = $"{str}, {(command == KeyCommand.Left ? "L" : "R")}";
                         }

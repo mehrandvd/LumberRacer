@@ -40,6 +40,7 @@ namespace LumberRacer
         {
             InitConfigUI();
             InitCamera();
+            ToggleStartGame();
         }
 
         private void InitConfigUI()
@@ -114,6 +115,15 @@ namespace LumberRacer
         public void Log(string text)
         {
             listLog.Items.Insert(0, text);
+
+            if (text.StartsWith("Game found"))
+            {
+                panelCameraStatus.BackColor = Color.LawnGreen;
+            }
+            else if (text.StartsWith("Game lost"))
+            {
+                panelCameraStatus.BackColor = Color.Red;
+            }
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
