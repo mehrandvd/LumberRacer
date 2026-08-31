@@ -162,7 +162,7 @@
             this.trackBarHorizontal.Size = new System.Drawing.Size(321, 45);
             this.trackBarHorizontal.SmallChange = 10;
             this.trackBarHorizontal.TabIndex = 9;
-            this.trackBarHorizontal.Value = 400;
+            this.trackBarHorizontal.Value = 900;
             // 
             // trackBarVertical
             // 
